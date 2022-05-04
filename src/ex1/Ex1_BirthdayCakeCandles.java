@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Ex1_BirthdayCakeCandles {
     public static void main(String[] args) {
 
-        int[] candles = new int[]{6, 6, 6, 6, 6, 4, 4, 3, 1, 4, 5, 5, 5};
+        int[] candles = new int[]{7, 4, 4, 3, 1, 4, 5, 5, 5};
 
         System.out.println(countTallestCandles1(candles));
         System.out.println(countTallestCandles2(candles));
@@ -31,9 +31,9 @@ public class Ex1_BirthdayCakeCandles {
     public static int countTallestCandles2(int[] arr) {
         Arrays.sort(arr);
         int tallest = arr[arr.length - 1];
-        int index = 0;
-        while (arr[arr.length - 1 - index] == tallest) {
-            index++;
+        int index = 1;
+        for (int i = arr.length - 1 - index; i >= 0; i--) {
+            if (arr[i] == tallest) index++;
         }
         return index;
     }
